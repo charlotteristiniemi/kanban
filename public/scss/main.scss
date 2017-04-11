@@ -1,0 +1,210 @@
+@import 'setup';
+
+/*
+ *	STYLING
+ */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	@include regularfont();
+}
+
+label {
+	@include regularfont();
+	font-weight: 300;
+	color: white;
+}
+
+#kanban {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: row;
+	background-image: url('../img/mac.jpg');
+
+	.container {
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 50px;
+
+		h1 {
+			text-align: center;
+			margin-top: 30px;
+			color: $orange;
+			@include heading($orange);
+		}
+
+		.note {
+			margin: 0 auto;
+			width: 350px;
+			margin-top: 50px;
+			background-color: rgba(255, 255, 255, 0.8);
+			padding: 20px 0 50px 0;
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+			position: relative;
+			
+			.buttons {
+				width: 54px;
+				position: absolute;
+				bottom: 5px;
+				left: 50%;
+				transform: translateX(-50%);
+
+				.btn {
+					width: 25px;
+					display: inline-block;
+
+					img {
+						width: 100%;
+					}
+
+					&:hover {
+						cursor: pointer;
+					}
+				}
+			}
+
+			#bigger {
+				width: 83px;
+			}
+
+			p {
+				text-align: center;
+				padding: 0 20px;
+			}
+		}
+	}
+
+	#todo {
+		
+	}
+
+	#doing {
+		border-left: 2px solid white;
+	}
+
+	#done {
+		border-left: 2px solid white;
+	}
+}
+
+#add {
+	width: 100%;
+	height: 500px;
+	background-color: $orange;
+	padding-top: 50px;
+	position: relative;
+
+	h1 {
+		@include heading($white);
+		color: white;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+
+	.errors, .success {
+		border-radius: 3px;
+		width: 500px;
+		margin: 0 auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		@include regularfont();
+		padding: 10px 0px;
+	}
+
+	.errors {
+		background-color: $red;
+	}
+
+	.success {
+		background-color: $green;
+
+		ul {
+			list-style-type: none;
+		}
+	}
+
+	.input-container {
+		width: 100%;
+		padding: 10px 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		
+		#add-form {
+			width: 500px;
+
+			label {
+				margin-top: 15px;
+			}
+
+			.input-div {
+				margin-top: 5px;
+				margin-bottom: 15px;
+
+				textarea {
+					width: 100%;
+					height: 100px;
+					border: 1px solid #CCC;
+					@include regularfont();
+					font-size: 14px;
+					border-radius: 3px;
+					border: none;
+				}
+
+				select {
+					width: 100%;
+					height: 35px;
+					border: 1px solid #CCC;
+					@include regularfont();
+					font-size: 14px;
+					border-radius: 3px;
+					border: none;
+
+					&:hover {
+						cursor: pointer;
+					}
+				}
+
+				select:focus, textarea:focus {
+					outline: none;
+				}
+			}
+
+			#save-btn {
+				width: 500px;
+				border: none;
+				background-color: $white;
+				border-radius: 3px;
+				height: 35px;
+				margin-top: 10px;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	.input-tag::-webkit-input-placeholder, .input-tag-text::-webkit-input-placeholder {
+		color: #212121;
+	  @include regularfont();
+		font-size: 14px;
+	}
+
+	p {
+		color: white;
+		font-size: 10pt;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}

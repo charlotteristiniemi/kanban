@@ -1,0 +1,32 @@
+/*
+ *	COLORS
+ */
+
+$orange: #ED7F00;
+$white: #FFFFFF;
+$red: #FF8B8B;
+$green: #76e294;
+
+
+/*
+ *	FONT FAMILIES
+ */
+
+$heading-font: 'Purple Purse', cursive;
+$body-font: 'Raleway', sans-serif;
+
+/*
+ *	MIXINS
+ */
+
+@mixin heading ($color) {
+	font-family: $heading-font;
+	font-size: 35pt;
+	color: $color;
+}
+
+@mixin regularfont () {
+	font-family: $body-font;
+	font-size: 15pt;
+}
+

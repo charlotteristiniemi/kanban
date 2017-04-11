@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Kanban</title>
+		<meta charset="utf-8">
+
+		<link href="https://fonts.googleapis.com/css?family=Purple+Purse|Raleway:300" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+
+		<section id="kanban">
+			<div class="container" id="todo">
+				<h1>To do</h1>
+				<% for (var i = 0; i < todo_notes.length; i++) { -%>
+					<div class="note">
+						<p><%= todo_notes[i].Note %></p>
+						<div class="buttons">
+							<div class="btn" onclick="deleteNote(<%=todo_notes[i].Note_id%>)">
+								<img src="img/garbage.svg" alt="Delete">
+							</div>
+							<div div class="btn" onclick="moveToRight(<%=todo_notes[i].Note_id%>, <%=todo_notes[i].Category_id%>)">
+								<img src="img/right.svg" alt="right">
+							</div>
+						</div>
+					</div>					
+				<% } -%>
+			</div>
+
+			<div class="container" id="doing">
+				<h1>Doing</h1>
+				<% for (var i = 0; i < doing_notes.length; i++) { -%>
+					<div class="note">
+						<p><%= doing_notes[i].Note %></p>
+						<div class="buttons" id="bigger">
+							<div class="btn" onclick="moveToLeft(<%=doing_notes[i].Note_id%>, <%=doing_notes[i].Category_id%>)">
+								<img src="img/left.svg" alt="right">
+							</div>
+							<div class="btn" onclick="deleteNote(<%=doing_notes[i].Note_id%>)">
+								<img src="img/garbage.svg" alt="Delete">
+							</div>
+							<div class="btn" onclick="moveToRight(<%=doing_notes[i].Note_id%>, <%=doing_notes[i].Category_id%>)">
+								<img src="img/right.svg" alt="right">
+							</div>
+						</div>
+					</div>
+				<% } -%>
+			</div>
+
+			<div class="container" id="done">
+				<h1>Done</h1>
+				<% for (var i = 0; i < done_notes.length; i++) { -%>
+					<div class="note">
+						<p><%= done_notes[i].Note %></p>
+						<div class="buttons">
+							<div class="btn" onclick="moveToLeft(<%=done_notes[i].Note_id%>, <%=done_notes[i].Category_id%>)">
+								<img src="img/left.svg" alt="right">
+							</div>
+							<div class="btn" onclick="deleteNote(<%=done_notes[i].Note_id%>)">
+								<img src="img/garbage.svg" alt="Delete">
+							</div>
+						</div>
+					</div>
+				<% } -%>
+			</div>
+		</section>
+
+		<!-- ADD NEW NOTE -->
+		<section id="add">
+			<h1>Add new note</h1>
+
+			<div class="data-msg">
+			  <ul class="error-list"></ul>
+			</div>
+
+			<div class="input-container">
+				<form id="add-form">
+
+					<label>Note</label>
+					<div class="input-div">
+						<textarea class="input-tag-text" name="note" placeholder="Note..." required></textarea>
+					</div>
+					
+					<label>Category</label>
+					<div class="input-div">
+						<select class="input-tag" name="categoryid">
+							<% if (categories.length) {
+								for (var i = 0 ; i < categories.length ; i++ ) { %>
+									<option value="<%=categories[i].Category_id%>"><%=categories[i].Category_name%></option>
+								<% }
+							}
+							else { %>
+								<p>Hittades inga kategorier!</p>
+							<% } %>
+						</select>
+					</div>
+					
+					<div class="button-div">
+						<button id="save-btn" onclick="postNote()">Save</button>
+					</div>
+					
+				</form>
+			</div>
+
+			<p>&copy; 2017 | Charlotte Ristiniemi</p>
+
+		</section>
+
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>
