@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Kanban</title>
+		<meta charset="utf-8">
+
+		<link href="https://fonts.googleapis.com/css?family=Purple+Purse|Raleway:300" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+
+		<div class="back" onclick="startPage()">
+			<img src="img/left.svg" alt="back">
+		</div>
+
+		<form id="filter-form" method="POST">
+			<select name="categoryid" id="select-filter">
+				<% for (var i = 0; i < categories_data.length; i++) { -%>
+					<option value="<%= categories_data[i].Category_id%>"><%= categories_data[i].Category_name%></option>
+				<% } -%>
+			</select>
+			<button id="filter-btn" onclick="this.form.submit()">Filter</button>
+		</form>
+		
+		<table>
+			<tr>
+				<th>Note</th>
+    		<th>Category</th>
+			</tr>
+			<% for (var i = 0; i < notes_data.length; i++) { -%>
+				<tr>
+					<td><%= notes_data[i].Note%></td>
+	    		<td><%= categories_data[notes_data[i].Category_id - 1].Category_name%></td>
+	    	</tr>
+			<% } -%>
+		</table>
+
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>

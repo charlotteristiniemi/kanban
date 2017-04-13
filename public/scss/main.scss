@@ -1,4 +1,5 @@
 @import 'setup';
+@import 'filter';
 
 /*
  *	STYLING
@@ -17,6 +18,26 @@ label {
 	@include regularfont();
 	font-weight: 300;
 	color: white;
+}
+
+#filter {
+	width: 50px;
+	height: 50px;
+	// background-color: rgba(255,255,255,0.95);
+	// box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	border-radius: 5%;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	padding: 5px;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	img {
+		width: 100%;
+	}
 }
 
 #kanban {
@@ -44,17 +65,15 @@ label {
 			margin: 0 auto;
 			width: 350px;
 			margin-top: 50px;
-			background-color: rgba(255, 255, 255, 0.8);
+			background-color: rgba(255, 255, 255, 0.95);
 			padding: 20px 0 50px 0;
 			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 			position: relative;
 			
 			.buttons {
 				width: 54px;
-				position: absolute;
 				bottom: 5px;
-				left: 50%;
-				transform: translateX(-50%);
+				@include centerX();
 
 				.btn {
 					width: 25px;
@@ -202,9 +221,7 @@ label {
 	p {
 		color: white;
 		font-size: 10pt;
-		position: absolute;
 		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
+		@include centerX();
 	}
 }

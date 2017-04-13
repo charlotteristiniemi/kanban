@@ -24,9 +24,11 @@ server.use(function(req, res, next) {
 // GET, POST and PUT request to browser
 server.get('/', routes.home);
 server.post('/', routes.add);
-server.get('/delete_note/:id', routes.delete);
+server.delete('/:id', routes.delete);
 server.get('/move_note_to_right/:id/:category_id', routes.moveToRight);
 server.get('/move_note_to_left/:id/:category_id', routes.moveToLeft);
+server.get('/filter', routes.filterPage);
+server.post('/filter', routes.filterNotes);
 
 // Start Server
 var server = server.listen(3000,function(){

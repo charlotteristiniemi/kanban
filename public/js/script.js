@@ -1,4 +1,10 @@
+function goToFilter() {
+  window.location.href = '/filter';
+}
 
+function startPage() {
+  window.location.href = '/';
+}
 
 function postNote() {
 	$.ajax({
@@ -27,7 +33,19 @@ function postNote() {
 }
 
 function deleteNote(id) {
-	window.location.href = '/delete_note/'+id;
+
+  $.ajax({
+    url: "/"+id,
+    type: "delete",
+    success: function(data, status, xhr) {
+      window.location.reload();
+      return false;
+    },
+    error: function(xhr, status, error) {
+      return false;
+    }
+  });
+	// window.location.href = '/delete_note/'+id;
 }
 
 function moveToRight(id, category_id) {

@@ -48,15 +48,16 @@ exports.add = function(req, res) {
 
 
 /*
- * GET Delete Note
+ * DELETE Delete Note
  */
 
 exports.delete = function(req, res) {
+
 	var noteid = req.params.id;
 
  	connection.query( 'DELETE FROM Notes WHERE Note_id = ?',  [noteid], function (err, row, field) {
 		if (err) console.log(err);
-		res.redirect('/');
+		res.sendStatus(200);
 	});
 };
 
@@ -90,4 +91,34 @@ exports.moveToLeft = function(req, res) {
  		if (err) console.log(err);
  		res.redirect('/');
   });
+};
+
+
+/*
+ * GET Filter Page
+ */
+
+exports.filterPage = function(req, res) {
+	connection.query( 'SELECT * FROM Notes', function(err1, row1, field1) {
+		if (err1) console.log(err1);
+		connection.query( 'SELECT * FROM Categories', function(err2, row2, field2) {
+			if (err2) console.log(err2);
+			res.render('filter', { notes_data: row1, categories_data: row2});
+		});
+	});
+};
+
+
+/*
+ * POST Filter Notes by Category
+ */
+
+exports.filterNotes = function(req, res) {
+	var filter_type = req.body.categoryid;
+	connection.query( 'CALL FilterNotes(' + filter_type + ')', function(err, row, field) {
+		if (err) console.log(err);
+		var notes = row[0];
+		var categories = row[1];
+		res.render('filter', { notes_data: notes, categories_data: categories});
+	});
 };
