@@ -30,7 +30,7 @@
 			<% for (var i = 0; i < notes_data.length; i++) { -%>
 				<tr>
 					<td><%= notes_data[i].Note%></td>
-	    		<td><%= categories_data[notes_data[i].Category_id - 1].Category_name%></td>
+	    		<td><%= notes_data[i].Category_name%></td>
 	    	</tr>
 			<% } -%>
 		</table>

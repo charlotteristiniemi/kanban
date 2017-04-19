@@ -99,7 +99,7 @@ exports.moveToLeft = function(req, res) {
  */
 
 exports.filterPage = function(req, res) {
-	connection.query( 'SELECT * FROM Notes', function(err1, row1, field1) {
+	connection.query( 'SELECT * FROM Notes, Categories WHERE Notes.Category_id = Categories.Category_id', function(err1, row1, field1) {
 		if (err1) console.log(err1);
 		connection.query( 'SELECT * FROM Categories', function(err2, row2, field2) {
 			if (err2) console.log(err2);
@@ -119,6 +119,7 @@ exports.filterNotes = function(req, res) {
 		if (err) console.log(err);
 		var notes = row[0];
 		var categories = row[1];
+
 		res.render('filter', { notes_data: notes, categories_data: categories});
 	});
 };
