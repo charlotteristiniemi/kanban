@@ -6,6 +6,18 @@ function startPage() {
   window.location.href = '/';
 }
 
+function goToTransaction() {
+  window.location.href = '/transaction'
+}
+
+function moveToRight(id, category_id) {
+  window.location.href = '/move_note_to_right/'+id+'/'+category_id;
+}
+
+function moveToLeft(id, category_id) {
+  window.location.href = '/move_note_to_left/'+id+'/'+category_id;
+}
+
 function postNote() {
 	$.ajax({
 		url: "/",
@@ -45,13 +57,4 @@ function deleteNote(id) {
       return false;
     }
   });
-	// window.location.href = '/delete_note/'+id;
-}
-
-function moveToRight(id, category_id) {
-	window.location.href = '/move_note_to_right/'+id+'/'+category_id;
-}
-
-function moveToLeft(id, category_id) {
-	window.location.href = '/move_note_to_left/'+id+'/'+category_id;
 }

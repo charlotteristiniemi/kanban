@@ -29,6 +29,8 @@ server.get('/move_note_to_right/:id/:category_id', routes.moveToRight);
 server.get('/move_note_to_left/:id/:category_id', routes.moveToLeft);
 server.get('/filter', routes.filterPage);
 server.post('/filter', routes.filterNotes);
+server.get('/transaction', routes.transactionPage);
+server.post('/transaction', routes.transaction);
 
 // Start Server
 var server = server.listen(3000,function(){

@@ -1,5 +1,6 @@
 @import 'setup';
 @import 'filter';
+@import 'transaction';
 
 /*
  *	STYLING
@@ -20,11 +21,9 @@ label {
 	color: white;
 }
 
-#filter {
+#filter, #transaction {
 	width: 50px;
 	height: 50px;
-	// background-color: rgba(255,255,255,0.95);
-	// box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	border-radius: 5%;
 	position: absolute;
 	right: 10px;
@@ -37,6 +36,14 @@ label {
 
 	img {
 		width: 100%;
+	}
+}
+
+#transaction {
+	top: 80px;
+
+	img {
+		fill: $white;
 	}
 }
 

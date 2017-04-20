@@ -78,6 +78,50 @@ table {
     font-size: 25pt; }
 
 /*
+ *	COLORS
+ */
+/*
+ *	FONT FAMILIES
+ */
+/*
+ *	MIXINS
+ */
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-family: "Purple Purse", cursive;
+  font-size: 25pt;
+  color: #FFFFFF; }
+
+#transaction-form {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50px;
+  width: 40%; }
+  #transaction-form #note p {
+    color: #FFFFFF; }
+  #transaction-form #note input {
+    width: 100%;
+    height: 35px;
+    border: none; }
+  #transaction-form input {
+    width: 100%;
+    height: 35px;
+    border: none; }
+  #transaction-form #transaction-btn {
+    width: 100%;
+    border: none;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    height: 35px;
+    margin-top: 50px;
+    font-family: "Raleway", sans-serif;
+    font-size: 15pt; }
+    #transaction-form #transaction-btn:hover {
+      cursor: pointer; }
+
+/*
  *	STYLING
  */
 body {
@@ -94,7 +138,7 @@ label {
   font-weight: 300;
   color: white; }
 
-#filter {
+#filter, #transaction {
   width: 50px;
   height: 50px;
   border-radius: 5%;
@@ -102,10 +146,15 @@ label {
   right: 10px;
   top: 10px;
   padding: 5px; }
-  #filter:hover {
+  #filter:hover, #transaction:hover {
     cursor: pointer; }
-  #filter img {
+  #filter img, #transaction img {
     width: 100%; }
+
+#transaction {
+  top: 80px; }
+  #transaction img {
+    fill: #FFFFFF; }
 
 #kanban {
   width: 100%;

@@ -1,0 +1,61 @@
+@import 'setup';
+
+h1 {
+	text-align: center;
+	margin-top: 30px;
+	font-family: $heading-font;
+	font-size: 25pt;
+	color: $white;
+}
+
+#transaction-form {
+	@include centerX();
+	top: 50px;
+	width: 40%;
+
+	#note {
+		p {
+			color: $white;
+		}
+
+		input {
+			width: 100%;
+			height: 35px;
+			border: none;
+		}
+	}
+
+	input {
+		width: 100%;
+		height: 35px;
+		border: none;
+	}
+
+	#transaction-btn {
+		width: 100%;
+		border: none;
+		background-color: $white;
+		border-radius: 3px;
+		height: 35px;
+		margin-top: 50px;
+		@include regularfont();
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+
+// <form id="filter-form" method="POST">
+// 	<h1>Change category on this note:</h1>
+// 	<div id="note">
+// 		<p><%= notes_data[0].Note%> - (<%= categories_data[notes_data[0].Category_id].Category_name%>)</p>
+// 		<input type="text" name="update">
+// 	</div>
+
+// 	<h1>Choose category for new note</h1>
+// 	<input type="text" name="insert">
+	
+// 	<button id="filter-btn" onclick="this.form.submit()">Send</button>
+// </form>

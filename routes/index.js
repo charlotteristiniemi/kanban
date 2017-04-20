@@ -123,3 +123,32 @@ exports.filterNotes = function(req, res) {
 		res.render('filter', { notes_data: notes, categories_data: categories});
 	});
 };
+
+
+/*
+ * GET Filter Page
+ */
+
+exports.transactionPage = function(req, res) {
+	connection.query( 'SELECT * FROM Notes WHERE Note_id = 33', function(err1, row1, field1) {
+		if (err1) console.log(err1);
+		connection.query( 'SELECT * FROM Categories', function(err2, row2, field2) {
+			if (err2) console.log(err2);
+			res.render('transaction', { notes_data: row1, categories_data: row2});
+		});
+	});
+};
+
+
+/*
+ * POST Transaction
+ */
+
+exports.transaction = function(req, res) {
+	var cat_id = req.body.update;
+	var cat_idd = req.body.insert;
+	connection.query( 'CALL MyTransaction(' + cat_id + ', ' + cat_idd + ')', function(err, row, field) {
+		if (err) console.log(err);
+		res.redirect('/transaction');
+	});
+};

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Kanban</title>
+		<meta charset="utf-8">
+
+		<link href="https://fonts.googleapis.com/css?family=Purple+Purse|Raleway:300" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+
+		<div class="back" onclick="startPage()">
+			<img src="img/left.svg" alt="back">
+		</div>
+
+		<form id="transaction-form" method="POST">
+			<h1>Change category on this note:</h1>
+			<div id="note">
+				<p><%= notes_data[0].Note%> - (<%= categories_data[notes_data[0].Category_id-1].Category_name%>)</p>
+				<input type="text" name="update">
+			</div>
+
+			<h1>Choose category for new note</h1>
+			<input type="text" name="insert">
+			
+			<button id="transaction-btn" onclick="this.form.submit()">Send</button>
+		</form>
+
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>
